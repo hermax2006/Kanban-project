@@ -11,15 +11,15 @@ export function getEcho() {
       broadcaster: 'reverb',
       key: import.meta.env.VITE_REVERB_APP_KEY,
       wsHost: import.meta.env.VITE_REVERB_HOST,
-      wsPort: 8080, 
-      wssPort: 8080,
-      forceTLS: false,
-      enabledTransports: ['ws'],
+      wsPort: 443,
+      wssPort: 443,
+      forceTLS: true,
+      enabledTransports: ['wss'],
       authorizer: (channel) => {
         return {
           authorize: (socketId, callback) => {
             const token = localStorage.getItem('token')
-            fetch(`http://${import.meta.env.VITE_REVERB_HOST}:8000/broadcasting/auth`, {
+            fetch('https://kanban-project-production-12b7.up.railway.app/broadcasting/auth', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -31,12 +31,9 @@ export function getEcho() {
                 channel_name: channel.name,
               }),
             })
-              .then(res => {
-                if (!res.ok) throw new Error('Erreur d\'authentification');
-                return res.json();
-              })
-              .then(data => callback(null, data))
-              .catch(err => callback(err))
+            .then(res => res.json())
+            .then(data => callback(null, data))
+            .catch(err => callback(err))
           }
         }
       },
