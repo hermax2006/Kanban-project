@@ -1,12 +1,12 @@
 import axios from 'axios'
 
 const api = axios.create({
-baseURL: 'https://kanban-project-production-12b7.up.railway.app/api',
+  baseURL: import.meta.env.VITE_API_URL,
   headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
   },
-  withCredentials: true,
+  withCredentials: false,
 })
 
 // Avant chaque requête, on ajoute le token automatiquement
