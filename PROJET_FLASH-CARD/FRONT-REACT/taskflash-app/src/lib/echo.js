@@ -7,6 +7,11 @@ let echoInstance = null
 
 export function getEcho() {
   if (!echoInstance) {
+    console.log('Echo config:', {
+      key: import.meta.env.VITE_REVERB_APP_KEY,
+      host: import.meta.env.VITE_REVERB_HOST,
+      port: import.meta.env.VITE_REVERB_PORT,
+    })
     echoInstance = new Echo({
       broadcaster: 'reverb',
       key: import.meta.env.VITE_REVERB_APP_KEY,
@@ -41,6 +46,7 @@ export function getEcho() {
   }
   return echoInstance
 }
+
 
 export function resetEcho() {
   if (echoInstance) {
