@@ -1,0 +1,55 @@
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-loader);
+  background: var(--c-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+/* ── Counter ──────────────────────── */
+.counter {
+  font-family: var(--f-mono);
+  font-size: clamp(4rem, 12vw, 9rem);
+  font-weight: 700;
+  color: var(--c-text);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+/* ── Lines ────────────────────────── */
+.lines {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: clamp(200px, 40vw, 360px);
+}
+
+.line {
+  height: 2px;
+  border-radius: 2px;
+}
+
+.line.dev   { background: var(--c-dev); width: 100%; }
+.line.both  { background: var(--c-text-3); width: 70%; }
+.line.three { background: var(--c-3d); width: 45%; }
+
+/* ── Label ────────────────────────── */
+.label {
+  font-family: var(--f-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.labelDev  { color: var(--c-dev); }
+.separator { color: var(--c-text-3); margin: 0 0.25em; }
+.label3d   { color: var(--c-3d); }

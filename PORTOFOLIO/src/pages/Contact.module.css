@@ -1,0 +1,89 @@
+.contact {
+  padding: 10rem 8vw 8rem;
+  min-height: 80vh;
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 5rem;
+}
+
+.cta {
+  font-family: var(--f-display);
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+/* ── Contact grid ─────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1px;
+  border: 1px solid var(--c-border);
+  margin-bottom: 3rem;
+}
+
+.contactItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1.75rem 2rem;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  transition: background 0.3s ease;
+  cursor: pointer;
+}
+
+.contactItem:hover {
+  background: var(--c-surface-2);
+}
+
+.contactLabel {
+  font-size: 0.65rem;
+  color: var(--c-text-3);
+}
+
+.contactValue {
+  font-family: var(--f-mono);
+  font-size: 0.9rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: gap 0.3s var(--ease-out);
+}
+
+.contactValue.dev   { color: var(--c-dev); }
+.contactValue.three { color: var(--c-3d); }
+
+.contactItem:hover .contactValue { gap: 0.75rem; }
+
+.arrow { font-size: 0.8em; opacity: 0.6; }
+
+/* ── Socials ──────────────────────── */
+.socials {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.social {
+  font-family: var(--f-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-text-3);
+  transition: color 0.25s ease;
+}
+
+.social:hover { color: var(--c-text); }
+
+/* ── Responsive ───────────────────── */
+@media (max-width: 768px) {
+  .contact { padding: 7rem 5vw 5rem; }
+  .grid { grid-template-columns: 1fr; }
+}

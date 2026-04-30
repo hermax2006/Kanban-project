@@ -1,0 +1,134 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-nav);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 2.5rem;
+  background: rgba(8, 8, 16, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--c-border);
+}
+
+/* ── Logo ─────────────────────────── */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logoText {
+  font-family: var(--f-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--c-text);
+}
+
+.logoDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  transition: background 0.4s ease;
+}
+
+.logoDot.dev   { background: var(--c-dev); box-shadow: 0 0 8px var(--c-dev); }
+.logoDot.three { background: var(--c-3d);  box-shadow: 0 0 8px var(--c-3d); }
+
+/* ── Links ────────────────────────── */
+.links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.link {
+  font-family: var(--f-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--c-text-3);
+  transition: color 0.25s ease;
+  position: relative;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.3s var(--ease-out);
+}
+
+.link:hover,
+.link.active {
+  color: var(--c-text);
+}
+
+.link:hover::after,
+.link.active::after {
+  width: 100%;
+}
+
+/* ── Toggle ───────────────────────── */
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.toggleLabel {
+  font-family: var(--f-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.toggleLabel.dev      { color: var(--c-dev); }
+.toggleLabel.three    { color: var(--c-3d);  }
+.toggleLabel.inactive { color: var(--c-text-3); }
+
+.toggleTrack {
+  position: relative;
+  width: 36px;
+  height: 20px;
+  background: var(--c-surface-2);
+  border: 1px solid var(--c-border-2);
+  border-radius: var(--r-full);
+  transition: background 0.3s ease;
+}
+
+.toggleThumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--c-dev);
+  transition: transform 0.3s var(--ease-out), background 0.3s ease;
+}
+
+.toggleThumb.on {
+  transform: translateX(16px);
+  background: var(--c-3d);
+}
+
+/* ── Mobile ───────────────────────── */
+@media (max-width: 768px) {
+  .nav {
+    padding: 1rem 1.25rem;
+  }
+
+  .links {
+    display: none;
+  }
+}

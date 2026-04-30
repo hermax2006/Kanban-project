@@ -1,0 +1,127 @@
+.hero {
+  position: relative;
+  z-index: var(--z-content);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 8vw;
+  padding-top: 6rem;
+}
+
+/* ── Eyebrow ──────────────────────── */
+.eyebrow {
+  margin-bottom: 1.5rem;
+}
+
+/* ── Title ────────────────────────── */
+.title {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--f-display);
+  font-size: clamp(3.5rem, 9vw, 9rem);
+  font-weight: 800;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  margin-bottom: 2rem;
+}
+
+.titleLine {
+  display: block;
+  overflow: hidden;
+}
+
+.titleAccent.dev   { color: var(--c-dev); }
+.titleAccent.three { color: var(--c-3d); }
+
+/* ── Sub ──────────────────────────── */
+.sub {
+  max-width: 520px;
+  margin-bottom: 3rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+}
+
+/* ── CTA ──────────────────────────── */
+.cta {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--r-full);
+  font-family: var(--f-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s ease;
+}
+
+.btnPrimary.dev {
+  background: var(--c-dev);
+  color: var(--c-bg);
+  box-shadow: 0 0 24px var(--c-dev-glow);
+}
+.btnPrimary.three {
+  background: var(--c-3d);
+  color: var(--c-bg);
+  box-shadow: 0 0 24px var(--c-3d-glow);
+}
+
+.btnPrimary:hover {
+  transform: scale(1.04);
+}
+
+.btnGhost {
+  font-family: var(--f-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-text-2);
+  border: 1px solid var(--c-border-2);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--r-full);
+  transition: color 0.25s ease, border-color 0.25s ease;
+  cursor: pointer;
+}
+
+.btnGhost:hover {
+  color: var(--c-text);
+  border-color: var(--c-text-3);
+}
+
+/* ── Scroll hint ──────────────────── */
+.scrollHint {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 8vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.4;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 48px;
+  background: var(--c-text-2);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { transform: scaleY(1); opacity: 1; }
+  50%       { transform: scaleY(0.5); opacity: 0.4; }
+}
+
+/* ── Responsive ───────────────────── */
+@media (max-width: 768px) {
+  .hero { padding: 0 5vw; padding-top: 5rem; }
+  .title { font-size: clamp(2.8rem, 11vw, 5rem); }
+}

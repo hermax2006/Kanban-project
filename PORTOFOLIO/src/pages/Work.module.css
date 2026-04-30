@@ -1,0 +1,132 @@
+.work {
+  padding: 10rem 8vw 6rem;
+}
+
+.header {
+  margin-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* ── Grid ────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.5px;
+}
+
+/* ── Card ────────────────────────── */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2.5rem;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  transition: border-color 0.3s ease, background 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.devCard::before { background: var(--c-dev-dim); }
+.tdCard::before  { background: var(--c-3d-dim); }
+
+.card:hover::before { opacity: 1; }
+
+.devCard:hover { border-color: rgba(74, 240, 255, 0.3); }
+.tdCard:hover  { border-color: rgba(255, 107, 74, 0.3); }
+
+/* ── Card top row ─────────────────── */
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardYear {
+  font-family: var(--f-mono);
+  font-size: 0.7rem;
+  color: var(--c-text-3);
+}
+
+.cardNum {
+  font-size: 0.65rem;
+}
+
+/* ── Card body ────────────────────── */
+.cardTitle {
+  font-family: var(--f-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--c-text);
+  line-height: 1.2;
+}
+
+.cardDesc {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--c-text-2);
+  flex: 1;
+}
+
+/* ── Stack tags ───────────────────── */
+.cardStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tag {
+  font-family: var(--f-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--r-full);
+  border: 1px solid;
+}
+
+.tagDev {
+  color: var(--c-dev);
+  border-color: rgba(74, 240, 255, 0.3);
+  background: var(--c-dev-dim);
+}
+
+.tag3d {
+  color: var(--c-3d);
+  border-color: rgba(255, 107, 74, 0.3);
+  background: var(--c-3d-dim);
+}
+
+/* ── Arrow ────────────────────────── */
+.cardArrow {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  font-size: 1.1rem;
+  color: var(--c-text-3);
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.3s ease, transform 0.3s var(--ease-out);
+}
+
+.card:hover .cardArrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Responsive ───────────────────── */
+@media (max-width: 768px) {
+  .work { padding: 7rem 5vw 4rem; }
+  .grid { grid-template-columns: 1fr; }
+}
